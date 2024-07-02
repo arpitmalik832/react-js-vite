@@ -5,3 +5,4 @@ cypress/fixtures
 cypress/downloads
 cypress/videos
 cypress/screenshots
+*.config.cjs
