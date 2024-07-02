@@ -1,0 +1,4 @@
+. "$(dirname "$0")/_/husky.sh"
+
+# validate branch name before push.
+npx validate-branch-name
