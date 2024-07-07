@@ -1,6 +1,12 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true, jest: true, 'cypress/globals': true },
+  env: {
+    browser: true,
+    es2020: true,
+    jest: true,
+    'cypress/globals': true,
+    node: true,
+  },
   extends: [
     'eslint:recommended',
     'prettier',
