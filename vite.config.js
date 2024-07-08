@@ -46,6 +46,11 @@ export default defineConfig({
     postcss: {
       plugins: [postcssPresetEnvPlugin, autoprefixerPlugin],
     },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/scss/index.scss";`,
+      },
+    },
   },
   build: {
     outDir: 'build',
@@ -61,6 +66,7 @@ export default defineConfig({
           }
           return `${pkg.version}/assets/[name].[hash].[ext]`;
         },
+        // eslint-disable-next-line consistent-return
         manualChunks: id => {
           if (id.includes('node_modules')) {
             if (id.includes('react-dom')) {
