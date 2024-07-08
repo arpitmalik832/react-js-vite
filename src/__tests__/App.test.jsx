@@ -1,16 +1,31 @@
-import { fireEvent, render } from '@testing-library/react';
-import App from '../App';
+import { render, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
-describe('App', () => {
-  it('snapshot test for component', () => {
-    const { container } = render(<App />);
+import Component from '../App';
 
-    expect(container).toMatchSnapshot();
+jest.mock('react-router-dom', () => ({
+  __esModule: true,
+  RouterProvider: jest.fn(() => <div data-testid="mock-router-provider" />),
+}));
+
+jest.mock('../routes', () => ({
+  __esModule: true,
+  default: {},
+}));
+
+jest.mock('../hooks/useAppMount', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+describe('App unit tests', () => {
+  afterEach(() => {
+    cleanup();
   });
 
-  it('renders the app component', () => {
-    const { getByTestId } = render(<App />);
+  test('App snapshot test', () => {
+    const component = render(<Component />);
 
-    fireEvent.click(getByTestId('button'));
+    expect(component).toMatchSnapshot();
   });
 });

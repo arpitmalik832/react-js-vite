@@ -21,7 +21,8 @@ export default {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/**/*.{test,spec}.{js,jsx}',
-    '!src/main.jsx',
+    '!src/index.js',
+    '!src/bootstrap.jsx',
     '!src/configs/**',
     '!src/redux/**',
     '!src/routes/**',
