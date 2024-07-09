@@ -69,12 +69,6 @@ export default defineConfig({
         // eslint-disable-next-line consistent-return
         manualChunks: id => {
           if (id.includes('node_modules')) {
-            if (id.includes('react-dom')) {
-              return 'react-dom';
-            }
-            if (id.includes('react')) {
-              return 'react';
-            }
             return 'vendor';
           }
         },
