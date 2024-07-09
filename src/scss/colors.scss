@@ -1,0 +1,23 @@
+html {
+  // background colors
+  --backgroundNeutral100: #fff;
+
+  // border colors
+  --borderNeutral100: #fff;
+
+  // text colors
+  --textNeutral900: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    // background colors
+    --backgroundNeutral100: #000;
+
+    // border colors
+    --borderNeutral100: #000;
+
+    // text colors
+    --textNeutral900: #fff;
+  }
+}
