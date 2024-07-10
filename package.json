@@ -18,7 +18,7 @@
     "build:beta": "npm run rm-build && npm run build-w-rm:beta",
     "build-w-rm:beta-stg": "cross-env NODE_ENV=beta vite build --mode staging",
     "build:beta-stg": "npm run rm-build && npm run build-w-rm:beta-stg",
-    "build-w-rm:prod": "cross-env NODE_ENV=production vite build --mode production no-console",
+    "build-w-rm:prod": "cross-env NODE_ENV=production vite build --mode production",
     "build:prod": "npm run rm-build && npm run build-w-rm:prod",
     "build-w-rm:prod-stg": "cross-env NODE_ENV=production vite build --mode staging",
     "build:prod-stg": "npm run rm-build && npm run build-w-rm:prod-stg",
