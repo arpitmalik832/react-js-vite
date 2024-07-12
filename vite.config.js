@@ -7,6 +7,7 @@ import path from 'path';
 import postcssPresetEnvPlugin from 'postcss-preset-env';
 import autoprefixerPlugin from 'autoprefixer';
 import preload from 'vite-plugin-preload';
+import { VitePWA } from 'vite-plugin-pwa';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -61,6 +62,11 @@ export default defineConfig({
     generateChunkManifestPlugin(),
     copyRedirectsPlugin(),
     preload(),
+    VitePWA({
+      strategies: 'injectManifest',
+      injectRegister: false,
+      injectManifest: false,
+    }),
   ],
   esbuild: {
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
