@@ -83,6 +83,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'build',
+    copyPublicDir: false,
     minify: ['production', 'beta'].includes(process.env.NODE_ENV),
     sourcemap: !['production', 'beta'].includes(process.env.NODE_ENV),
     rollupOptions: {
