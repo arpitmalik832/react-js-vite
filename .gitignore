@@ -125,3 +125,4 @@ build
 # cypress results
 cypress/videos
 cypress/screenshots
+*storybook.log
