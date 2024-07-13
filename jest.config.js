@@ -26,6 +26,7 @@ export default {
     '!src/configs/**',
     '!src/redux/**',
     '!src/routes/**',
+    '!src/stories/**',
   ],
   globals: {},
   // https://facebook.github.io/jest/docs/en/configuration.html#coveragedirectory-string
