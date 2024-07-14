@@ -45,7 +45,7 @@ const checkValidSW = () => {
 const SWRegistration = {
   register() {
     if (
-      (ENVS.PROD, ENVS.BETA, ENVS.STG).includes(process.env.NODE_ENV) &&
+      [ENVS.PROD, ENVS.BETA, ENVS.STG].includes(process.env.NODE_ENV) &&
       'serviceWorker' in navigator
     ) {
       // The URL constructor is available in all browsers that support SW.
