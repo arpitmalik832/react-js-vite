@@ -1,5 +1,3 @@
-. "$(dirname "$0")/_/husky.sh"
-
 # Define color variables
 Red="\033[0;31m"
 Green="\033[0;32m"
