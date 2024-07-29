@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-expressions */
 /// <reference types="cypress" />
 
 context('Spies, Stubs, and Clock', () => {
