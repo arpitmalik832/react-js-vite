@@ -1,4 +1,2 @@
-. "$(dirname "$0")/_/husky.sh"
-
 # validate commit message before commit.
 npx --no-install commitlint --edit "$1"
