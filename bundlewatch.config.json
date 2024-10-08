@@ -1,0 +1,18 @@
+{
+  "files": [
+    {
+      "path": "dist/**/*.js",
+      "maxSize": "100kB"
+    }
+  ],
+  "ci": {
+    "trackBranches": [
+      "development",
+      "staging",
+      "beta",
+      "release",
+      "master",
+      "feature-*"
+    ]
+  }
+}

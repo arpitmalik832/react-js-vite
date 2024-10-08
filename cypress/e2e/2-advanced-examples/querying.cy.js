@@ -1,3 +1,7 @@
+/**
+ * This spec file contains examples of querying DOM elements.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/querying.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Querying', () => {

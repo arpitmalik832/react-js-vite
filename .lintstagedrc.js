@@ -1,14 +1,13 @@
 const config = {
-  '**/*.{js,jsx}': [
-    'npm run lint-js:fix',
-    'npm run prettier:fix -- "**/*.{js,jsx}"',
+  '**/*.{mjs,cjs,js,jsx,mdx,md}': [
+    'yarn lint-js:fix',
+    'yarn prettier:fix "**/*.{mjs,cjs,js,jsx,mdx,md}"',
   ],
   '**/*.{css,scss}': [
-    'npm run lint-css:fix',
-    'npm run prettier:fix -- "**/*.{css,scss}"',
+    'yarn lint-css:fix',
+    'yarn prettier:fix  "**/*.{css,scss}"',
   ],
-  '**/*.json': ['npm run prettier:fix -- "**/*.json" --parser json'],
-  '**/*.md': ['npm run prettier:fix -- "**/*.md" --parser markdown'],
+  '**/*.json': ['yarn prettier:fix "**/*.json"'],
 };
 
 export default config;

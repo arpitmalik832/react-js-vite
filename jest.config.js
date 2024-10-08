@@ -1,6 +1,9 @@
-// Jest configuration
-// https://facebook.github.io/jest/docs/en/configuration.html
-export default {
+/**
+ * Jest Config File.
+ * For more info, please refer https://facebook.github.io/jest/docs/en/configuration.html.
+ * @file This file is saved as `jest.config.js`.
+ */
+const config = {
   // Modules can be explicitly auto-mocked using jest.mock(moduleName).
   // https://facebook.github.io/jest/docs/en/configuration.html#automock-boolean
   automock: false, // [boolean]
@@ -21,9 +24,11 @@ export default {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/**/*.{test,spec}.{js,jsx}',
+    '!src/**/*.stories.{js,jsx}',
     '!src/index.js',
     '!src/bootstrap.jsx',
     '!src/configs/**',
+    '!src/enums/**',
     '!src/redux/**',
     '!src/routes/**',
     '!src/stories/**',
@@ -51,8 +56,9 @@ export default {
   // like images or styles with a single module.
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
-    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/src/__tests__/__mocks__/mockAsset.js',
+    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/src/__tests__/__mocks__/assetMock.js',
+    '.+\\.(svg)$': '<rootDir>/src/__tests__/__mocks__/svgrMock.jsx',
   },
   // modulePathIgnorePatterns: // [array<string>]
   // modulePaths: // [array<string>]
@@ -81,9 +87,14 @@ export default {
     url: 'http://localhost:3000/',
   },
   transform: {
-    '\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',
+    '\\.(js|jsx)$': 'babel-jest',
   },
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/(?!(@arpitmalik832/react-js-rollup-monorepo-library)/)', // Add your ESM packages here
+  ],
   // unmockedModulePathPatterns: // [array<string>]
   verbose: true, // [boolean],
-  setupFiles: ['<rootDir>/setupTests.js'], // [testConfig files DOM,Mock]
+  setupFiles: ['<rootDir>/jest.setup.js'], // [testConfig files DOM,Mock]
 };
+
+export default config;

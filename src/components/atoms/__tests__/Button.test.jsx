@@ -1,14 +1,17 @@
+/**
+ * Button unit tests.
+ * @file The file is saved as `Button.test.jsx`.
+ */
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Component from '../Button';
 
-jest.mock('react-redux', () => ({
+jest.mock('@arpitmalik832/react-js-rollup-monorepo-library', () => ({
+  slices: {
+    updateStore: jest.fn(),
+  },
   useDispatch: jest.fn(() => () => jest.fn()),
-}));
-
-jest.mock('../../../redux/slices/appSlice', () => ({
-  updateStore: jest.fn(),
 }));
 
 describe('Button unit tests', () => {

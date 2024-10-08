@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of using Cypress commands that are used to connect to the DOM elements.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/connectors.cy.js`.
+ */
 /* eslint-disable no-console */
 /// <reference types="cypress" />
 

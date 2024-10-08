@@ -3,5 +3,9 @@
 # Compiled output
 build
 dist
+distInfo
+types
 node_modules
 coverage
+storybook-static
+static/styles
