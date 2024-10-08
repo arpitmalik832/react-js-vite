@@ -1,3 +1,7 @@
+/**
+ * This test file demonstrates how to use Cypress commands to interact with storage.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/storage.cy.js`.
+ */
 /* eslint-disable no-unused-expressions */
 /// <reference types="cypress" />
 

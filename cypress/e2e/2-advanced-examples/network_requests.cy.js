@@ -1,3 +1,8 @@
+/**
+ * This example shows how to use cy.request() to make HTTP requests
+ * and cy.intercept() to intercept and stub network requests.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/network_requests.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Network Requests', () => {

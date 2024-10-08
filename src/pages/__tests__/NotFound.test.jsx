@@ -1,3 +1,7 @@
+/**
+ * NotFound Page unit tests.
+ * @file This file is saved as `NotFound.test.jsx`.
+ */
 import { cleanup, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 

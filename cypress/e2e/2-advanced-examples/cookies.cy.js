@@ -1,3 +1,7 @@
+/**
+ * This example shows how to interact with cookies in Cypress.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/cookies.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Cookies', () => {

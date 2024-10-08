@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of using aliases in Cypress.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/aliasing.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Aliasing', () => {

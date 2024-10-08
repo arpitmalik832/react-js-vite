@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of how to use spies, stubs, and clocks in Cypress.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/spies_stubs_clocks.cy.js`.
+ */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 /// <reference types="cypress" />
@@ -23,8 +27,11 @@ context('Spies, Stubs, and Clock', () => {
 
     const obj = {
       /**
-       * Prints the argument passed
-       * @param x {any}
+       * Prints the argument passed.
+       * @param {any} x - The argument to be printed.
+       * @example This is an example of how to use the foo method.
+       * obj.foo('example argument 1', 'example argument 2');
+       * obj.foo('example argument');
        */
       foo(x) {
         console.log('obj.foo called with', x);
@@ -50,9 +57,11 @@ context('Spies, Stubs, and Clock', () => {
 
     const obj = {
       /**
-       * prints both arguments to the console
-       * @param a {string}
-       * @param b {string}
+       * Prints both arguments to the console.
+       * @param {string} a - The first argument.
+       * @param {string} b - The second argument.
+       * @example This is an example of how to use the isGreaterThan function.
+       * obj.foo('example argument 1', 'example argument 2');
        */
       foo(a, b) {
         console.log('a', a, 'b', b);
@@ -101,8 +110,11 @@ context('Spies, Stubs, and Clock', () => {
     // https://sinonjs.org/releases/latest/matchers/
     const greeter = {
       /**
-       * Greets a person
-       * @param {string} name
+       * Greets a person.
+       * @param {string} name - The name of the person to greet.
+       * @returns {string} A greeting message.
+       * @example This is an example of how to use the isGreaterThan function.
+       * greeter.greet('Alice'); // returns 'Hello, Alice!'
        */
       greet(name) {
         return `Hello, ${name}!`;
@@ -129,9 +141,12 @@ context('Spies, Stubs, and Clock', () => {
     // https://sinonjs.org/releases/latest/matchers/
     const calculator = {
       /**
-       * returns the sum of two arguments
-       * @param a {number}
-       * @param b {number}
+       * Returns the sum of two arguments.
+       * @param {number} a - The first number.
+       * @param {number} b - The second number.
+       * @returns {number} The sum of the two numbers.
+       * @example This is an example of how to use the isGreaterThan function.
+       * calculator.add(2, 3); // returns 5
        */
       add(a, b) {
         return a + b;
@@ -164,8 +179,12 @@ context('Spies, Stubs, and Clock', () => {
     expect(spy).to.be.calledWith(Cypress.sinon.match.in([1, 2, 3]), 3);
 
     /**
-     * Returns true if the given number is even
-     * @param {number} x
+     * Returns true if the given number is even.
+     * @param {number} x - The number to check.
+     * @returns {boolean} True if the number is even, false otherwise.
+     * @example This is an example of how to use the isGreaterThan function.
+     * isEven(2); // returns true
+     * isEven(3); // returns false
      */
     const isEven = x => x % 2 === 0;
 
@@ -175,16 +194,24 @@ context('Spies, Stubs, and Clock', () => {
     expect(spy).to.be.calledWith(Cypress.sinon.match(isEven, 'isEven'), 3);
 
     /**
-     * Returns a function that checks if a given number is larger than the limit
-     * @param {number} limit
-     * @returns {(x: number) => boolean}
+     * Returns a function that checks if a given number is larger than the limit.
+     * @param {number} limit - The limit to compare against.
+     * @returns {(x: number) => boolean} A function that checks if a given number is larger than the limit.
+     * @example
+     * const greaterThan10 = isGreaterThan(10);
+     * console.log(greaterThan10(11)); // true
+     * console.log(greaterThan10(9)); // false
      */
     const isGreaterThan = limit => x => x > limit;
 
     /**
-     * Returns a function that checks if a given number is less than the limit
-     * @param {number} limit
-     * @returns {(x: number) => boolean}
+     * Returns a function that checks if a given number is less than the limit.
+     * @param {number} limit - The limit to compare against.
+     * @returns {(x: number) => boolean} A function that checks if a given number is less than the limit.
+     * @example
+     * const lessThan10 = isLessThan(10);
+     * console.log(lessThan10(5)); // true
+     * console.log(lessThan10(15)); // false
      */
     const isLessThan = limit => x => x < limit;
 

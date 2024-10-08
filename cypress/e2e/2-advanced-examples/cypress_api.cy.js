@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of Cypress APIs in action.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/cypress_api.cy.js`.
+ */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
