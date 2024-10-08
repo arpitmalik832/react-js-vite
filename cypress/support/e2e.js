@@ -1,3 +1,7 @@
+/**
+ * The cypress support file.
+ * @file The file is saved as `cypress/support/e2e.js`.
+ */
 // ***********************************************************
 // This example support/e2e.js is processed and
 // loaded automatically before your test files.

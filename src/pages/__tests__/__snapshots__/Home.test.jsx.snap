@@ -10,12 +10,18 @@ exports[`Unit tests for Home Page snapshot test 1`] = `
         <div
           data-testid="mock-button"
         />
+        <div
+          data-testid="mock-button"
+        />
       </div>
     </div>
   </body>,
   "container": <div>
     <div>
       Home
+      <div
+        data-testid="mock-button"
+      />
       <div
         data-testid="mock-button"
       />

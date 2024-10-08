@@ -1,3 +1,7 @@
+/**
+ * PageWrapper unit tests.
+ * @file The file is saved as `PageWrapper.test.jsx`.
+ */
 import { cleanup, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 

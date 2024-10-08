@@ -1,3 +1,7 @@
+/**
+ * This file is used to configure Cypress.
+ * @file The file is saved as `cypress.config.js`.
+ */
 import { defineConfig } from 'cypress';
 import fs from 'fs';
 

@@ -1,111 +1,92 @@
-import { fileURLToPath } from 'url';
+/**
+ * This is the Vite configuration file.
+ * @file This file is saved as `vite.config.js`.
+ */
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import compression from 'vite-plugin-compression';
-import fs from 'fs';
-import path from 'path';
 import postcssPresetEnvPlugin from 'postcss-preset-env';
 import autoprefixerPlugin from 'autoprefixer';
 import preload from 'vite-plugin-preload';
 import { VitePWA } from 'vite-plugin-pwa';
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+import { ENVS } from './build_utils/config/index.mjs';
+import { entryPath, outputPath } from './build_utils/config/commonPaths.mjs';
+import generateChunkManifestPlugin from './build_utils/vite/customPlugins/generateChunkManifestPlugin.mjs';
+import copyRedirectsPlugin from './build_utils/vite/customPlugins/copyRedirectsNetlifyPlugin.mjs';
+import pkg from './package.json' with { type: 'json' };
+import { ERR_NO_ENV_FLAG } from './build_utils/config/logs.mjs';
 
-// Read package.json
-const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+/**
+ * Get the Vite configuration based on the environment.
+ * @returns {object} The Vite configuration object.
+ * @throws {Error} Throws an error if APP_ENV is not defined.
+ * @example
+ * // To get the configuration
+ * const config = getConfig();
+ */
+function getConfig() {
+  if (!process.env.APP_ENV) {
+    throw new Error(ERR_NO_ENV_FLAG);
+  }
 
-// Custom plugin to generate chunk manifest
-function generateChunkManifestPlugin() {
-  return {
-    name: 'generate-chunk-manifest',
-    writeBundle(options, bundle) {
-      const manifest = {};
-      for (const [fileName, chunk] of Object.entries(bundle)) {
-        if (chunk.isEntry || chunk.isDynamicEntry) {
-          manifest[fileName] = chunk.imports || [];
-        }
-      }
-      const manifestPath = path.join(options.dir, 'chunk-manifest.json');
-      fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+  // https://vitejs.dev/config/
+  return defineConfig({
+    plugins: [
+      react(),
+      compression({
+        deleteOriginFile: false,
+        algorithm: 'brotliCompress',
+        ext: '.br',
+      }),
+      generateChunkManifestPlugin(),
+      copyRedirectsPlugin(),
+      preload(),
+      VitePWA({
+        strategies: 'injectManifest',
+        injectRegister: false,
+        injectManifest: false,
+      }),
+    ],
+    define: {
+      'process.env.APP_ENV': JSON.stringify(process.env.APP_ENV),
     },
-  };
-}
-
-// Custom plugin to copy _redirects file
-function copyRedirectsPlugin() {
-  return {
-    name: 'copy-redirects',
-    writeBundle: {
-      sequential: true,
-      order: 'post',
-      handler() {
-        const source = path.resolve(dirname, 'public', 'netlify', '_redirects');
-        const destination = path.resolve(dirname, 'build', '_redirects');
-        if (fs.existsSync(source)) {
-          fs.copyFileSync(source, destination);
-        }
+    esbuild: {
+      drop: process.env.APP_ENV === ENVS.PROD ? ['console', 'debugger'] : [],
+    },
+    css: {
+      postcss: {
+        plugins: [postcssPresetEnvPlugin, autoprefixerPlugin],
       },
     },
-  };
-}
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    compression({
-      deleteOriginFile: false,
-      algorithm: 'brotliCompress',
-      ext: '.br',
-    }),
-    generateChunkManifestPlugin(),
-    copyRedirectsPlugin(),
-    preload(),
-    VitePWA({
-      strategies: 'injectManifest',
-      injectRegister: false,
-      injectManifest: false,
-    }),
-  ],
-  esbuild: {
-    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
-  },
-  css: {
-    postcss: {
-      plugins: [postcssPresetEnvPlugin, autoprefixerPlugin],
-    },
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./src/scss/index.scss";`,
-      },
-    },
-  },
-  build: {
-    outDir: 'build',
-    copyPublicDir: false,
-    minify: ['production', 'beta'].includes(process.env.NODE_ENV),
-    sourcemap: !['production', 'beta'].includes(process.env.NODE_ENV),
-    rollupOptions: {
-      input: {
-        main: path.resolve(dirname, 'index.html'),
-      },
-      output: {
-        entryFileNames: `${pkg.version}/js/[name].[hash].js`,
-        chunkFileNames: `${pkg.version}/js/[name].[hash].js`,
-        assetFileNames: assetInfo => {
-          if (assetInfo.name.endsWith('.css')) {
-            return `${pkg.version}/css/[name].[hash].[extname]`;
-          }
-          return `${pkg.version}/assets/[name].[hash].[ext]`;
+    build: {
+      outDir: outputPath,
+      copyPublicDir: false,
+      minify: [ENVS.PROD, ENVS.BETA].includes(process.env.APP_ENV),
+      sourcemap: ![ENVS.PROD, ENVS.BETA].includes(process.env.APP_ENV),
+      rollupOptions: {
+        input: {
+          main: entryPath,
         },
-        // eslint-disable-next-line consistent-return
-        manualChunks: id => {
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
+        output: {
+          entryFileNames: `${pkg.version}/js/[name].[hash].js`,
+          chunkFileNames: `${pkg.version}/js/[name].[hash].js`,
+          assetFileNames: assetInfo => {
+            if (assetInfo.name.endsWith('.css')) {
+              return `${pkg.version}/css/[name].[hash].[ext]`;
+            }
+            return `${pkg.version}/assets/[name].[hash].[ext]`;
+          },
+          // eslint-disable-next-line consistent-return
+          manualChunks: id => {
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+          },
         },
       },
     },
-  },
-});
+  });
+}
+
+export default getConfig;
