@@ -1,12 +1,9 @@
+/**
+ * ESLint configuration file.
+ * For more info, pls refer: http://eslint.org/docs/user-guide/configuring.
+ * @file The file is saved as `.eslintrc.cjs`.
+ */
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    es2020: true,
-    jest: true,
-    'cypress/globals': true,
-    node: true,
-  },
   parser: '@babel/eslint-parser',
   extends: [
     'airbnb',
@@ -16,6 +13,7 @@ module.exports = {
     'react-app',
     'plugin:cypress/recommended',
     'plugin:storybook/recommended',
+    'plugin:jsdoc/recommended',
   ],
   plugins: [
     'css-modules',
@@ -25,15 +23,30 @@ module.exports = {
     'react',
     'react-hooks',
     'cypress',
+    'storybook',
+    'jsdoc',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
   settings: {
-    react: {
-      version: '18.2',
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx'],
+      },
+      alias: {
+        map: [
+          [
+            '@arpitmalik832/react-js-rollup-monorepo-library/icons/*',
+            './node_modules/@arpitmalik832/react-js-rollup-monorepo-library/dist/assets/icons/*',
+          ],
+          [
+            '@arpitmalik832/react-js-rollup-monorepo-library',
+            './node_modules/@arpitmalik832/react-js-rollup-monorepo-library/dist/index.js',
+          ],
+          [
+            '@arpitmalik832/react-js-rollup-monorepo-library/styles/*',
+            './node_modules/@arpitmalik832/react-js-rollup-monorepo-library/dist/styles/*',
+          ],
+        ],
+      },
     },
   },
   rules: {
@@ -62,6 +75,42 @@ module.exports = {
     // Ensure <a> tags are valid
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md
     'jsx-a11y/anchor-is-valid': 2,
+    // rules regarding jsdoc
+    'jsdoc/check-types': 2,
+    'jsdoc/check-values': 2,
+    'jsdoc/check-syntax': 2,
+    'jsdoc/check-alignment': 2,
+    'jsdoc/check-tag-names': 2,
+    'jsdoc/check-indentation': 1,
+    'jsdoc/check-param-names': 2,
+    'jsdoc/check-property-names': 2,
+    'jsdoc/check-line-alignment': 2,
+    'jsdoc/require-jsdoc': 2,
+    'jsdoc/require-param': 2,
+    'jsdoc/require-throws': 2,
+    'jsdoc/require-yields': 2,
+    'jsdoc/require-returns': 2,
+    'jsdoc/require-example': 2,
+    'jsdoc/require-template': 2,
+    'jsdoc/require-property': 2,
+    'jsdoc/require-param-type': 2,
+    'jsdoc/require-param-name': 2,
+    'jsdoc/require-description': 2,
+    'jsdoc/require-returns-type': 2,
+    'jsdoc/require-yields-check': 2,
+    'jsdoc/require-file-overview': 2,
+    'jsdoc/require-returns-check': 2,
+    'jsdoc/require-property-name': 2,
+    'jsdoc/require-property-type': 2,
+    'jsdoc/require-asterisk-prefix': 2,
+    'jsdoc/require-param-description': 2,
+    'jsdoc/require-returns-description': 2,
+    'jsdoc/require-property-description': 2,
+    'jsdoc/require-description-complete-sentence': 2,
+    'jsdoc/require-hyphen-before-param-description': 2,
+    'jsdoc/sort-tags': 2,
+    'jsdoc/tag-lines': 2,
+    'jsdoc/valid-types': 2,
     // rules regarding no-console
     'no-console': 2,
     'no-debugger': 2,
@@ -72,9 +121,20 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.spec.js', '**/*.spec.jsx'],
-      env: {
-        jest: true,
+      files: ['**/*.mdx', '**/*.md'],
+      parser: 'eslint-mdx',
+      extends: ['plugin:mdx/recommended'],
+      plugins: ['mdx'],
+      settings: {
+        'mdx/code-blocks': true,
+      },
+      parserOptions: {
+        extensions: ['.mdx', '.jsx', '.md', '.js'],
+        markdownExtensions: ['.mdx', '.jsx', '.md', '.js'],
+      },
+      rules: {
+        'react/jsx-filename-extension': [1, { extensions: ['.mdx'] }],
+        'jsdoc/require-file-overview': 0, // Disable this rule for MDX files
       },
     },
   ],

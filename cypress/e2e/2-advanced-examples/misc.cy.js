@@ -1,3 +1,7 @@
+/**
+ * This spec file contains examples of advanced usage of Cypress commands.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/misc.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Misc', () => {

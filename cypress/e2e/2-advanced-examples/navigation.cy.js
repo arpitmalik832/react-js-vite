@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of navigation commands in Cypress.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/navigation.cy.js`.
+ */
 /* eslint-disable no-unused-expressions */
 /// <reference types="cypress" />
 

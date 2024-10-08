@@ -1,3 +1,7 @@
+/**
+ * This test file demonstrates how to use Cypress commands to interact with the location.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/location.cy.js`.
+ */
 /* eslint-disable no-unused-expressions */
 /// <reference types="cypress" />
 
