@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of how to use the traversal commands in Cypress.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/traversal.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Traversal', () => {

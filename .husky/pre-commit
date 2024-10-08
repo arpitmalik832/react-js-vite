@@ -63,9 +63,20 @@ printf "\n${Blue}=================================${NC}\n"
 
 printf "${Green}Start - Knipping of the code.${NC}"
 
-npm run knip:pre-commit
+yarn knip:prod:check-files
 
 printf "${Green}End - Knipping of the code.${NC}"
+
+printf "\n${Blue}=================================${NC}\n"
+
+# validate staged code before commit.
+printf "\n${Blue}=================================${NC}\n"
+
+printf "${Green}Start - lint-staged of the code.${NC}"
+
+yarn lint-staged
+
+printf "${Green}End - lint-staged of the code.${NC}"
 
 printf "\n${Blue}=================================${NC}\n"
 
@@ -74,7 +85,7 @@ printf "\n${Blue}=================================${NC}\n"
 
 printf "${Green}Start - Linting of the code.${NC}"
 
-npm run lint-staged
+yarn lint
 
 printf "${Green}End - Linting of the code.${NC}"
 
@@ -85,7 +96,7 @@ printf "\n${Blue}=================================${NC}\n"
 
 printf "${Green}Start - Unit testing.${NC}"
 
-npm run test:coverage:pre-commit
+yarn test:coverage:silent:quick
 
 printf "${Green}End - Unit testing.${NC}"
 
@@ -96,41 +107,41 @@ printf "\n${Blue}=================================${NC}\n"
 
 printf "${Green}Start - E2E testing.${NC}"
 
-npm run e2e-run:pre-commit
+yarn e2e-run
 
 printf "${Green}End - E2E testing.${NC}"
 
 printf "\n${Blue}=================================${NC}\n"
 
-# build code before commit 
-printf "\n${Blue}=================================${NC}\n"
+# # build code before commit 
+# printf "\n${Blue}=================================${NC}\n"
 
-printf "${Green}Start - Check build (staging).${NC}"
+# printf "${Green}Start - Check build (staging).${NC}"
 
-npm run build
+# yarn build
 
-printf "${Green}End - Check build (staging).${NC}"
+# printf "${Green}End - Check build (staging).${NC}"
 
-printf "\n${Blue}=================================${NC}\n"
+# printf "\n${Blue}=================================${NC}\n"
 
-# build-beta code before commit 
+# # build-beta code before commit 
 # printf "\n${Blue}=================================${NC}\n"
 
 # printf "${Green}Start - Check build (beta).${NC}"
 
-# # npm run build:beta
+# yarn build:beta
 
 # printf "${Green}End - Check build (beta).${NC}"
 
 # printf "\n${Blue}=================================${NC}\n"
 
 # build-prod code before commit 
-# printf "\n${Blue}=================================${NC}\n"
+printf "\n${Blue}=================================${NC}\n"
 
-# printf "${Green}Start - Check build (production).${NC}"
+printf "${Green}Start - Check build (production).${NC}"
 
-# npm run build:production
+yarn build:prod
 
-# printf "${Green}End - Check build (production).${NC}"
+printf "${Green}End - Check build (production).${NC}"
 
-# printf "\n${Blue}=================================${NC}\n"
+printf "\n${Blue}=================================${NC}\n"

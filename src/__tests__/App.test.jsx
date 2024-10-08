@@ -1,3 +1,7 @@
+/**
+ * App unit tests.
+ * @file The file is saved as `App.test.jsx`.
+ */
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 

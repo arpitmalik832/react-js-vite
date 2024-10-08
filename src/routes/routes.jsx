@@ -1,8 +1,14 @@
+/**
+ * Routes file.
+ * @file This file is saved as `routes/routes.jsx`.
+ */
 import { lazy } from 'react';
+import {
+  ComponentWithSuspense,
+  HtmlContent,
+} from '@arpitmalik832/react-js-rollup-monorepo-library';
 
-import ComponentWithSuspense from '../components/atoms/ComponentWithSuspense';
-import HtmlContent from '../components/atoms/HtmlContent';
-import { ROUTES, SEO } from '../configs/routes';
+import { ROUTES, SEO } from '../enums/routes';
 
 const Home = lazy(() => import(/* webpackChunkName: 'Home' */ '../pages/Home'));
 const Abc = lazy(() => import(/* webpackChunkName: 'Abc' */ '../pages/Abc'));

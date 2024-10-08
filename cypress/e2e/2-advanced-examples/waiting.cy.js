@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of how to use the cy.wait() command in Cypress.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/waiting.cy.js`.
+ */
 /* eslint-disable cypress/no-unnecessary-waiting */
 /// <reference types="cypress" />
 context('Waiting', () => {

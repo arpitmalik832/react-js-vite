@@ -1,3 +1,7 @@
+/**
+ * This spec file shows examples of reading and writing files using Cypress commands.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/files.cy.js`.
+ */
 /// <reference types="cypress" />
 
 /// JSON fixture file can be loaded directly using

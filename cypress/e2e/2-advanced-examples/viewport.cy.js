@@ -1,3 +1,7 @@
+/**
+ * This example is a bit more advanced and shows how to use the cy.viewport() command to change the viewport size.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/viewport.cy.js`.
+ */
 /* eslint-disable cypress/no-unnecessary-waiting */
 /// <reference types="cypress" />
 context('Viewport', () => {

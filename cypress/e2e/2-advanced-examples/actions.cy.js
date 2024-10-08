@@ -1,3 +1,7 @@
+/**
+ * This spec file contains examples of various actions you can perform in Cypress.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/actions.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Actions', () => {

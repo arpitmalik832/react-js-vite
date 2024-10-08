@@ -1,12 +1,20 @@
-import { ENVS } from './configs/app';
-import SWRegistration from './services/SWRegistration';
+/**
+ * This is the entry point of the application.
+ * @file This file is saved as `index.js`.
+ */
+import { SWRegistration } from '@arpitmalik832/react-js-rollup-monorepo-library';
 
-import('./bootstrap').then(({ mount }) =>
+import { ENVS } from '../build_utils/config/index.mjs';
+
+// eslint-disable-next-line import/extensions
+import('./bootstrap.jsx').then(({ mount }) =>
   mount(document.getElementById('app')),
 );
 
 SWRegistration.register();
 
-if (process.env.NODE_ENV !== ENVS.PROD) {
-  import('./utils/reportWebVitals').then(({ default: func }) => func());
+if (process.env.APP_ENV !== ENVS.PROD) {
+  import('@arpitmalik832/react-js-rollup-monorepo-library').then(
+    ({ reportWebVitals: func }) => func(),
+  );
 }

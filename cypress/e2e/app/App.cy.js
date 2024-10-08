@@ -1,3 +1,7 @@
+/**
+ * App e2e tests.
+ * @file The file is saved as `App.cy.js`.
+ */
 describe('app', () => {
   beforeEach(() => {
     cy.visit('http://localhost:5173/');
