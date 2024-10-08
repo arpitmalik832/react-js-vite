@@ -1,3 +1,7 @@
+/**
+ * Error Page unit tests.
+ * @file This file is saved as `Error.test.jsx`.
+ */
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 

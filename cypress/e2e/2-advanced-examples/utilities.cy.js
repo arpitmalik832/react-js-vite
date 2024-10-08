@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of using Cypress utilities.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/utilities.cy.js`.
+ */
 /* eslint-disable no-unused-expressions */
 /// <reference types="cypress" />
 
@@ -83,7 +87,12 @@ context('Utilities', () => {
     let waited = false;
 
     /**
-     * @return Bluebird<string>
+     * Waits for one second and then resolves with the string 'foo'.
+     * @returns {Cypress.Promise<string>} A promise that resolves with the string 'foo' after one second.
+     * @example
+     * waitOneSecond().then(str => {
+     *   console.log(str); // 'foo'
+     * });
      */
     function waitOneSecond() {
       // return a promise that resolves after 1 second

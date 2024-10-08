@@ -1,3 +1,7 @@
+/**
+ * E2E tests for the window object.
+ * @file The file is saved as `window.cy.js`.
+ */
 /// <reference types="cypress" />
 
 context('Window', () => {

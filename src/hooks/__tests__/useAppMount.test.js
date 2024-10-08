@@ -1,16 +1,16 @@
+/**
+ * Hook useAppMount unit tests.
+ * @file The file is saved as `useAppMount.test.js`.
+ */
 import { cleanup, renderHook } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import hook from '../useAppMount';
 
-jest.mock('../useTheme', () => ({
+jest.mock('@arpitmalik832/react-js-rollup-monorepo-library', () => ({
   __esModule: true,
-  default: jest.fn(),
-}));
-
-jest.mock('../useInitAxios', () => ({
-  __esModule: true,
-  default: jest.fn(),
+  useTheme: jest.fn(),
+  useInitAxios: jest.fn(),
 }));
 
 describe('useAppMount unit tests', () => {

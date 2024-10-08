@@ -83,6 +83,7 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+types
 
 # Gatsby files
 .cache/
@@ -116,13 +117,29 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# ignore package-lock if generated (project uses yarn, not npm)
-package-lock.json
-
 # ignore build files
 build
+dist
 
 # cypress results
 cypress/videos
 cypress/screenshots
 *storybook.log
+
+# for storybook
+storybook-static
+
+# Generated files
+.docusaurus
+.cache-loader
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

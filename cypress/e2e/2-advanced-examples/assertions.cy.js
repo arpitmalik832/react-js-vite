@@ -1,3 +1,7 @@
+/**
+ * This file contains examples of using Cypress assertions.
+ * @file The file is saved as `cypress/e2e/2-advanced-examples/assertions.cy.js`.
+ */
 /* eslint-disable no-unused-expressions */
 /// <reference types="cypress" />
 
@@ -135,9 +139,14 @@ context('Assertions', () => {
       /**
        * Normalizes passed text,
        * useful before comparing text with spaces and different capitalization.
-       * @param {string} s Text to normalize
+       * @param {string} s - Text to normalize.
+       * @returns {string} - Normalized text.
+       * @example
+       * normalizeText(' Some Text ') // returns 'sometext'
        */
-      const normalizeText = s => s.replace(/\s/g, '').toLowerCase();
+      function normalizeText(s) {
+        return s.replace(/\s/g, '').toLowerCase();
+      }
 
       cy.get('.two-elements')
         .find('.first')

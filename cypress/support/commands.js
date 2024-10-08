@@ -1,3 +1,7 @@
+/**
+ * Custom commands for the application.
+ * @file The file is saved as `cypress/support/commands.js`.
+ */
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

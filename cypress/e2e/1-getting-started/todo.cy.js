@@ -1,3 +1,9 @@
+/**
+ * This spec file contains a variety of sample tests
+ * for a todo list app that are designed to demonstrate
+ * the power of writing tests in Cypress.
+ * @file The file is saved as `cypress/e2e/1-getting-started/todo.cy.js`.
+ */
 /// <reference types="cypress" />
 
 // This spec file contains a variety of sample tests

@@ -1,3 +1,7 @@
+/**
+ * The service worker file that is used to cache the application.
+ * @file This file is saved as `public/sw.js`.
+ */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-restricted-globals */
 import { registerRoute } from 'workbox-routing';
@@ -9,7 +13,18 @@ self.__precacheManifest = [].concat(
   self.__precacheManifest || self.__WB_MANIFEST,
 );
 
-const isSelfLocation = urlOrigin => [self.location.origin].includes(urlOrigin);
+/**
+ * Checks if the given URL origin is the same as the service worker's origin.
+ * @param {string} urlOrigin - The origin of the URL to check.
+ * @returns {boolean} True if the URL origin matches the service worker's origin, false otherwise.
+ * @example
+ * // Assuming the service worker's origin is 'https://example.com'
+ * isSelfLocation('https://example.com'); // returns true
+ * isSelfLocation('https://anotherdomain.com'); // returns false
+ */
+function isSelfLocation(urlOrigin) {
+  return [self.location.origin].includes(urlOrigin);
+}
 
 const precacheController = new PrecacheController();
 

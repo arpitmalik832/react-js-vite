@@ -1,3 +1,7 @@
+/**
+ * This is the Vite configuration file.
+ * @file This file is saved as `vite.config.js`.
+ */
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -16,6 +20,13 @@ const dirname = path.dirname(filename);
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
 // Custom plugin to generate chunk manifest
+/**
+ * Custom plugin to generate a chunk manifest.
+ * @returns {object} Vite plugin configuration object.
+ * @example
+ * // Add this plugin to the Vite plugins array
+ * plugins: [generateChunkManifestPlugin()]
+ */
 function generateChunkManifestPlugin() {
   return {
     name: 'generate-chunk-manifest',
@@ -33,6 +44,13 @@ function generateChunkManifestPlugin() {
 }
 
 // Custom plugin to copy _redirects file
+/**
+ * Custom plugin to copy _redirects file.
+ * @returns {object} Vite plugin configuration object.
+ * @example
+ * // Add this plugin to the Vite plugins array
+ * plugins: [copyRedirectsPlugin()]
+ */
 function copyRedirectsPlugin() {
   return {
     name: 'copy-redirects',
@@ -68,17 +86,15 @@ export default defineConfig({
       injectManifest: false,
     }),
   ],
+  define: {
+    'process.env.APP_ENV': JSON.stringify(process.env.APP_ENV),
+  },
   esbuild: {
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
   },
   css: {
     postcss: {
       plugins: [postcssPresetEnvPlugin, autoprefixerPlugin],
-    },
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./src/scss/index.scss";`,
-      },
     },
   },
   build: {
