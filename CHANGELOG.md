@@ -1,3 +1,9 @@
+## [0.0.2](https://github.com/arpitmalik832/react-js-vite-starter/compare/v0.0.1...v0.0.2) (2024-10-08)
+
+### Bug Fixes
+
+- **main:** dependencies for storybook ([c3a3ad8](https://github.com/arpitmalik832/react-js-vite-starter/commit/c3a3ad80fb0bc508021e1e8944e15549f01235a2))
+
 ## 0.0.1 (2024-10-08)
 
 ### Bug Fixes
