@@ -8,6 +8,7 @@ import {
 } from '@arpitmalik832/react-js-rollup-monorepo-library';
 
 import ButtonV2 from '../../components/atoms/Button';
+import { ReactComponent as ReactIcon } from '../../assets/icons/react.svg';
 
 /**
  * Home component renders the home page with buttons.
@@ -23,6 +24,7 @@ function Home() {
       Home
       <Button />
       <ButtonV2 />
+      <ReactIcon />
     </div>
   );
 }
