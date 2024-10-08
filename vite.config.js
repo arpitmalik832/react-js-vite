@@ -9,6 +9,7 @@ import postcssPresetEnvPlugin from 'postcss-preset-env';
 import autoprefixerPlugin from 'autoprefixer';
 import preload from 'vite-plugin-preload';
 import { VitePWA } from 'vite-plugin-pwa';
+import svgr from 'vite-plugin-svgr';
 
 import { ENVS } from './build_utils/config/index.mjs';
 import { entryPath, outputPath } from './build_utils/config/commonPaths.mjs';
@@ -16,7 +17,7 @@ import generateChunkManifestPlugin from './build_utils/vite/customPlugins/genera
 import copyRedirectsPlugin from './build_utils/vite/customPlugins/copyRedirectsNetlifyPlugin.mjs';
 import pkg from './package.json' with { type: 'json' };
 import { ERR_NO_ENV_FLAG } from './build_utils/config/logs.mjs';
-
+import svgrConfig from './svgr.config.mjs';
 /**
  * Get the Vite configuration based on the environment.
  * @returns {object} The Vite configuration object.
@@ -34,6 +35,10 @@ function getConfig() {
   return defineConfig({
     plugins: [
       react(),
+      svgr({
+        svgrOptions: svgrConfig,
+        include: '**/*.svg',
+      }),
       compression({
         deleteOriginFile: false,
         algorithm: 'brotliCompress',
