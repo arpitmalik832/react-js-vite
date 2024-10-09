@@ -149,3 +149,14 @@ yarn build:prod
 printf "${Green}End - Check build (production).${NC}"
 
 printf "\n${Blue}=================================${NC}\n"
+
+# build-storybook code before commit 
+printf "\n${Blue}=================================${NC}\n"
+
+printf "${Green}Start - Check build (staging).${NC}"
+
+yarn storybook:build
+
+printf "${Green}End - Check build (staging).${NC}"
+
+printf "\n${Blue}=================================${NC}\n"
