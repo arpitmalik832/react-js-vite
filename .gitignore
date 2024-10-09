@@ -143,3 +143,6 @@ storybook-static
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# To ignore runtime config file generated
+vite.config.js.timestamp-*.mjs
