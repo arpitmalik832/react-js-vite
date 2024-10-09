@@ -75,6 +75,8 @@ printf "\n${Blue}=================================${NC}\n"
 printf "${Green}Start - lint-staged of the code.${NC}"
 
 yarn lint-staged
+# Adding changes made by lint-staged
+git add .
 
 printf "${Green}End - lint-staged of the code.${NC}"
 
@@ -85,7 +87,9 @@ printf "\n${Blue}=================================${NC}\n"
 
 printf "${Green}Start - Linting of the code.${NC}"
 
-yarn lint
+yarn lint:fix
+# Adding changes made by lint-staged
+git add .
 
 printf "${Green}End - Linting of the code.${NC}"
 
