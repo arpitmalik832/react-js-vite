@@ -1,20 +1,23 @@
-export default {
+const config = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'type-enum': [
       2,
       'always',
       [
+        'bump',
         'chore',
         'docs',
+        'e2e',
         'feat',
         'fix',
-        'refactor',
         'optimize',
+        'refactor',
+        'revamp',
         'revert',
+        'security',
         'style',
         'test',
-        'e2e',
       ],
     ],
     'scope-enum': [
@@ -41,3 +44,5 @@ export default {
     'subject-case': [2, 'never', ['start-case', 'pascal-case']],
   },
 };
+
+export default config;

@@ -5,31 +5,32 @@
 import { visualizer } from 'rollup-plugin-visualizer';
 
 const timestamp = new Date().toISOString().replace(/:/g, '-');
+const path = `distInfo/${process.env.APP_ENV}/visualizers/${timestamp}`;
 
 const config = {
   plugins: [
     visualizer({
-      filename: `distInfo/main/visualizers/${timestamp}/sunburst.html`,
+      filename: `${path}/sunburst.html`,
       template: 'sunburst',
     }),
     visualizer({
-      filename: `distInfo/main/visualizers/${timestamp}/list.html`,
+      filename: `${path}/list.html`,
       template: 'list',
     }),
     visualizer({
-      filename: `distInfo/main/visualizers/${timestamp}/flamegraph.html`,
+      filename: `${path}/flamegraph.html`,
       template: 'flamegraph',
     }),
     visualizer({
-      filename: `distInfo/main/visualizers/${timestamp}/network.html`,
+      filename: `${path}/network.html`,
       template: 'network',
     }),
     visualizer({
-      filename: `distInfo/main/visualizers/${timestamp}/raw-data.html`,
+      filename: `${path}/raw-data.html`,
       template: 'raw-data',
     }),
     visualizer({
-      filename: `distInfo/main/visualizers/${timestamp}/treemap.html`,
+      filename: `${path}/treemap.html`,
       template: 'treemap',
     }),
   ],
