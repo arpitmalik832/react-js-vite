@@ -24,10 +24,10 @@
     jsonpointer "^5.0.0"
     leven "^3.1.0"
 
-"@arpitmalik832/react-js-rollup-monorepo-library@^0.3.6":
-  version "0.3.6"
-  resolved "https://npm.pkg.github.com/download/@arpitmalik832/react-js-rollup-monorepo-library/0.3.6/e16bba073b9766366714a9c896df83481fe55e7f#e16bba073b9766366714a9c896df83481fe55e7f"
-  integrity sha512-bjgg+FeTBG+bjU7hVp2iUJ6GMUCWKUpBTS1e5ffPvDpXo6bTZYIFJBVHputRDF2NZsWNSKZ1a7fyyLj4392fNw==
+"@arpitmalik832/react-js-rollup-monorepo-library@^0.3.8":
+  version "0.3.8"
+  resolved "https://npm.pkg.github.com/download/@arpitmalik832/react-js-rollup-monorepo-library/0.3.8/109cc1c5cea9d60fe3b796a0a311358501f43358#109cc1c5cea9d60fe3b796a0a311358501f43358"
+  integrity sha512-Sr00SAQ9hT8QVU9Zq7bLbzoX3gCbnapMzkXBsw/285j+2p6JttyUYd6j/gSFKQKJ3ru/AlCyoPtW+GrCL2rd4w==
   dependencies:
     "@reduxjs/toolkit" "^2.2.7"
     axios "^1.7.7"
