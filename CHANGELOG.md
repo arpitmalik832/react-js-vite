@@ -1,3 +1,14 @@
+## [0.0.3](https://github.com/arpitmalik832/react-js-vite-starter/compare/v0.0.2...v0.0.3) (2024-10-09)
+
+### Bug Fixes
+
+- **main:** fix to avoid runtime vite js file ([0c2166b](https://github.com/arpitmalik832/react-js-vite-starter/commit/0c2166b79f48b54e43ce9c7d14df97104721345e))
+- **main:** fixed github actions ([fc1ce75](https://github.com/arpitmalik832/react-js-vite-starter/commit/fc1ce75f4d715615161044be6aeec69461fe52f3))
+
+### Features
+
+- **assets:** added handling to process svg using svgr in vite config ([fc58894](https://github.com/arpitmalik832/react-js-vite-starter/commit/fc58894768d1bf38de097fd3633b6c6a76c22299))
+
 ## [0.0.2](https://github.com/arpitmalik832/react-js-vite-starter/compare/v0.0.1...v0.0.2) (2024-10-08)
 
 ### Bug Fixes
