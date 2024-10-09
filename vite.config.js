@@ -2,22 +2,38 @@
  * This is the Vite configuration file.
  * @file This file is saved as `vite.config.js`.
  */
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import compression from 'vite-plugin-compression';
-import postcssPresetEnvPlugin from 'postcss-preset-env';
-import autoprefixerPlugin from 'autoprefixer';
-import preload from 'vite-plugin-preload';
-import { VitePWA } from 'vite-plugin-pwa';
-import svgr from 'vite-plugin-svgr';
+import { defineConfig, mergeConfig } from 'vite';
 
-import { ENVS } from './build_utils/config/index.mjs';
-import { entryPath, outputPath } from './build_utils/config/commonPaths.mjs';
-import generateChunkManifestPlugin from './build_utils/vite/customPlugins/generateChunkManifestPlugin.mjs';
-import copyRedirectsPlugin from './build_utils/vite/customPlugins/copyRedirectsNetlifyPlugin.mjs';
-import pkg from './package.json' with { type: 'json' };
+import commonConfig from './build_utils/vite/configs/vite.common.mjs';
+import buildStatsConfig from './build_utils/vite/configs/vite.buildStats.mjs';
+import visualizerConfig from './build_utils/vite/configs/vite.visualizer.mjs';
 import { ERR_NO_ENV_FLAG } from './build_utils/config/logs.mjs';
-import svgrConfig from './svgr.config.mjs';
+
+/**
+ * Get additional Vite configurations based on command line arguments.
+ * @returns {Array} An array of additional Vite configurations.
+ * @example
+ * // To add visualizer configuration
+ * const addons = getAddons();
+ */
+function getAddons() {
+  const addVisualizer = process.env.INCLUDE_VISUALIZER === 'true';
+  const addBuildStats = process.env.INCLUDE_BUILD_STATS === 'true';
+
+  const configs = [];
+  if (addVisualizer) configs.push(visualizerConfig);
+  if (addBuildStats) configs.push(buildStatsConfig);
+
+  let result = {};
+  if (configs.length > 1) {
+    result = configs.reduce((acc, config) => mergeConfig(acc, config));
+  } else if (configs.length === 1) {
+    [result] = configs;
+  }
+
+  return result;
+}
+
 /**
  * Get the Vite configuration based on the environment.
  * @returns {object} The Vite configuration object.
@@ -31,67 +47,7 @@ function getConfig() {
     throw new Error(ERR_NO_ENV_FLAG);
   }
 
-  // https://vitejs.dev/config/
-  return defineConfig({
-    plugins: [
-      react(),
-      svgr({
-        svgrOptions: svgrConfig,
-        include: '**/*.svg',
-      }),
-      compression({
-        deleteOriginFile: false,
-        algorithm: 'brotliCompress',
-        ext: '.br',
-      }),
-      generateChunkManifestPlugin(),
-      copyRedirectsPlugin(),
-      preload(),
-      VitePWA({
-        strategies: 'injectManifest',
-        injectRegister: false,
-        injectManifest: false,
-      }),
-    ],
-    define: {
-      'process.env.APP_ENV': JSON.stringify(process.env.APP_ENV),
-    },
-    esbuild: {
-      drop: process.env.APP_ENV === ENVS.PROD ? ['console', 'debugger'] : [],
-    },
-    css: {
-      postcss: {
-        plugins: [postcssPresetEnvPlugin, autoprefixerPlugin],
-      },
-    },
-    build: {
-      outDir: outputPath,
-      copyPublicDir: false,
-      minify: [ENVS.PROD, ENVS.BETA].includes(process.env.APP_ENV),
-      sourcemap: ![ENVS.PROD, ENVS.BETA].includes(process.env.APP_ENV),
-      rollupOptions: {
-        input: {
-          main: entryPath,
-        },
-        output: {
-          entryFileNames: `${pkg.version}/js/[name].[hash].js`,
-          chunkFileNames: `${pkg.version}/js/[name].[hash].js`,
-          assetFileNames: assetInfo => {
-            if (assetInfo.name.endsWith('.css')) {
-              return `${pkg.version}/css/[name].[hash].[ext]`;
-            }
-            return `${pkg.version}/assets/[name].[hash].[ext]`;
-          },
-          // eslint-disable-next-line consistent-return
-          manualChunks: id => {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          },
-        },
-      },
-    },
-  });
+  return defineConfig(mergeConfig(commonConfig, getAddons()));
 }
 
 export default getConfig;
