@@ -21,7 +21,7 @@
     "rm-node_modules": "rimraf node_modules --glob",
     "rm-package-lock": "rimraf package-lock.json",
     "rm-yarn-lock": "rimraf yarn.lock",
-    "clean": "yarn rm-package-lock && yarn rm-node_modules",
+    "clean": "yarn rm-yarn-lock && yarn rm-node_modules",
     "serve": "cross-env APP_ENV=development vite preview",
     "start": "cross-env APP_ENV=development vite --mode development",
     "start:visualizer": "cross-env APP_ENV=development INCLUDE_VISUALIZER=true vite --mode development",
@@ -185,7 +185,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@arpitmalik832/react-js-rollup-monorepo-library": "^0.3.6",
+    "@arpitmalik832/react-js-rollup-monorepo-library": "^0.3.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.1",

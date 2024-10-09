@@ -1,0 +1,97 @@
+{
+  "files": [
+    {
+      "fileName": "0.0.2/assets/vite.DcBtz0py.svg",
+      "size": 1497,
+      "gzippedSize": 775,
+      "brotliSize": 672,
+      "contentType": "asset",
+      "percentageBySize": "0.21"
+    },
+    {
+      "fileName": "0.0.2/css/vendor.AeZRySbO.css",
+      "size": 2869,
+      "gzippedSize": 1145,
+      "brotliSize": 920,
+      "contentType": "asset",
+      "percentageBySize": "0.41"
+    },
+    {
+      "fileName": "0.0.2/css/index.6QsirZEe.css",
+      "size": 181,
+      "gzippedSize": 124,
+      "brotliSize": 90,
+      "contentType": "asset",
+      "percentageBySize": "0.03"
+    },
+    {
+      "fileName": "0.0.2/js/vendor.sp-AEHk6.js",
+      "size": 679081,
+      "gzippedSize": 159682,
+      "brotliSize": 132943,
+      "contentType": "chunk",
+      "percentageBySize": "97.34"
+    },
+    {
+      "fileName": "0.0.2/js/main.Dzf5qoQI.js",
+      "size": 3840,
+      "gzippedSize": 1446,
+      "brotliSize": 1241,
+      "contentType": "chunk",
+      "percentageBySize": "0.55"
+    },
+    {
+      "fileName": "0.0.2/js/bootstrap.Ce8yxpP2.js",
+      "size": 4096,
+      "gzippedSize": 1274,
+      "brotliSize": 1139,
+      "contentType": "chunk",
+      "percentageBySize": "0.59"
+    },
+    {
+      "fileName": "0.0.2/js/index.C-hPTC8p.js",
+      "size": 236,
+      "gzippedSize": 205,
+      "brotliSize": 189,
+      "contentType": "chunk",
+      "percentageBySize": "0.03"
+    },
+    {
+      "fileName": "0.0.2/js/index.7RXJqAJT.js",
+      "size": 5394,
+      "gzippedSize": 2669,
+      "brotliSize": 2286,
+      "contentType": "chunk",
+      "percentageBySize": "0.77"
+    },
+    {
+      "fileName": "0.0.2/js/index.AREC4QY-.js",
+      "size": 230,
+      "gzippedSize": 206,
+      "brotliSize": 168,
+      "contentType": "chunk",
+      "percentageBySize": "0.03"
+    },
+    {
+      "fileName": "0.0.2/js/index.DWbF4Vqu.js",
+      "size": 240,
+      "gzippedSize": 212,
+      "brotliSize": 202,
+      "contentType": "chunk",
+      "percentageBySize": "0.03"
+    }
+  ],
+  "totalSize": 697664,
+  "totalGzippedSize": 167738,
+  "totalBrotliSize": 139850,
+  "buildDuration": 9574,
+  "noOfFiles": 10,
+  "largestFile": {
+    "fileName": "0.0.2/js/vendor.sp-AEHk6.js",
+    "size": 679081,
+    "gzippedSize": 159682,
+    "brotliSize": 132943,
+    "contentType": "chunk",
+    "percentageBySize": "97.34"
+  }
+}
