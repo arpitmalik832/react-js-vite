@@ -4,7 +4,10 @@
  */
 import { writeFileSync } from 'fs';
 
-import { chunkManifestPath } from '../../config/commonPaths.mjs';
+import {
+  chunkManifestPath,
+  storybookChunkManifestPath,
+} from '../../config/commonPaths.mjs';
 
 /**
  * Custom plugin to generate a chunk manifest.
@@ -23,7 +26,12 @@ function generateChunkManifestPlugin() {
           manifest[fileName] = chunk.imports || [];
         }
       }
-      writeFileSync(chunkManifestPath, JSON.stringify(manifest, null, 2));
+      writeFileSync(
+        process.env.IS_STORYBOOK === 'true'
+          ? storybookChunkManifestPath
+          : chunkManifestPath,
+        JSON.stringify(manifest, null, 2),
+      );
     },
   };
 }
