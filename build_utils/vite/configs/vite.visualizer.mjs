@@ -5,7 +5,10 @@
 import { visualizer } from 'rollup-plugin-visualizer';
 
 const timestamp = new Date().toISOString().replace(/:/g, '-');
-const path = `distInfo/${process.env.APP_ENV}/visualizers/${timestamp}`;
+const path =
+  process.env.IS_STORYBOOK === 'true'
+    ? `distInfo/storybook/${process.env.APP_ENV}/visualizers/${timestamp}`
+    : `distInfo/${process.env.APP_ENV}/visualizers/${timestamp}`;
 
 const config = {
   plugins: [
