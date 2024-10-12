@@ -29,8 +29,6 @@ const plugins = [
     ext: '.br',
   }),
   generateChunkManifestPlugin(),
-  copyRedirectsPlugin(),
-
   VitePWA({
     strategies: 'injectManifest',
     injectRegister: false,
@@ -45,7 +43,7 @@ const plugins = [
 ];
 
 if (process.env.IS_STORYBOOK !== 'true') {
-  plugins.push(preload());
+  plugins.push(copyRedirectsPlugin(), preload());
 }
 
 const config = {
