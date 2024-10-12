@@ -150,13 +150,35 @@ printf "${Green}End - Check build (production).${NC}"
 
 printf "\n${Blue}=================================${NC}\n"
 
-# build-storybook code before commit 
+# # build-storybook code before commit 
+# printf "\n${Blue}=================================${NC}\n"
+
+# printf "${Green}Start - Check storybook:build (Staging).${NC}"
+
+# yarn storybook:build
+
+# printf "${Green}End - Check storybook:build (Staging).${NC}"
+
+# printf "\n${Blue}=================================${NC}\n"
+
+# # build-storybook:beta code before commit 
+# printf "\n${Blue}=================================${NC}\n"
+
+# printf "${Green}Start - Check storybook:build (Beta).${NC}"
+
+# yarn storybook:build:beta
+
+# printf "${Green}End - Check storybook:build (Beta).${NC}"
+
+# printf "\n${Blue}=================================${NC}\n"
+
+# build-storybook:prod code before commit 
 printf "\n${Blue}=================================${NC}\n"
 
-printf "${Green}Start - Check build (staging).${NC}"
+printf "${Green}Start - Check storybook:build (Production).${NC}"
 
-yarn storybook:build
+yarn storybook:build:prod
 
-printf "${Green}End - Check build (staging).${NC}"
+printf "${Green}End - Check storybook:build (Production).${NC}"
 
 printf "\n${Blue}=================================${NC}\n"

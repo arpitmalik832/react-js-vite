@@ -7,7 +7,7 @@ import { defineConfig, mergeConfig } from 'vite';
 import commonConfig from './build_utils/vite/configs/vite.common.mjs';
 import buildStatsConfig from './build_utils/vite/configs/vite.buildStats.mjs';
 import visualizerConfig from './build_utils/vite/configs/vite.visualizer.mjs';
-import { ERR_NO_ENV_FLAG } from './build_utils/config/logs.mjs';
+import { ERR_NO_APP_ENV_FLAG } from './build_utils/config/logs.mjs';
 
 /**
  * Get additional Vite configurations based on command line arguments.
@@ -44,7 +44,7 @@ function getAddons() {
  */
 function getConfig() {
   if (!process.env.APP_ENV) {
-    throw new Error(ERR_NO_ENV_FLAG);
+    throw new Error(ERR_NO_APP_ENV_FLAG);
   }
 
   return defineConfig(mergeConfig(commonConfig, getAddons()));
