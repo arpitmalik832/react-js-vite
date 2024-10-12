@@ -1,6 +1,7 @@
 import { mergeConfig } from 'vite';
 
 import { ENVS } from '../build_utils/config/index.mjs';
+import { ERR_NO_BE_ENV_FLAG } from '../build_utils/config/logs.mjs';
 
 export default {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)', '../src/**/*.mdx'],
@@ -14,7 +15,7 @@ export default {
   framework: '@storybook/react-vite',
   async viteFinal(config, { configType }) {
     if (!process.env.BE_ENV) {
-      throw new Error('please pass the BE_ENV');
+      throw new Error(ERR_NO_BE_ENV_FLAG);
     }
 
     return mergeConfig(config, {
