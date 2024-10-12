@@ -9,6 +9,17 @@ const PROJECT_ROOT = resolve();
 const projectRootPath = PROJECT_ROOT;
 const entryPath = join(PROJECT_ROOT, 'index.html');
 const outputPath = join(PROJECT_ROOT, 'dist');
+const storybookOutputPath = join(PROJECT_ROOT, 'storybook-static');
 const chunkManifestPath = join(outputPath, 'chunk-manifest.json');
+const storybookChunkManifestPath = join(
+  storybookOutputPath,
+  'chunk-manifest.json',
+);
 
-export { projectRootPath, entryPath, outputPath, chunkManifestPath };
+export {
+  projectRootPath,
+  entryPath,
+  outputPath,
+  chunkManifestPath,
+  storybookChunkManifestPath,
+};
