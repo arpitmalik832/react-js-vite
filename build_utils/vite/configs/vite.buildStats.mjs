@@ -5,9 +5,13 @@
 import buildStats from '../customPlugins/buildStatsPlugin.mjs';
 
 const timestamp = new Date().toISOString().replace(/:/g, '-');
+const path =
+  process.env.IS_STORYBOOK === 'true'
+    ? `distInfo/storybook/${process.env.APP_ENV}/buildStats`
+    : `distInfo/${process.env.APP_ENV}/buildStats`;
 
 const config = {
-  plugins: [buildStats(`distInfo/main/buildStats/${timestamp}/index.json`)],
+  plugins: [buildStats(`${path}/${timestamp}.json`)],
 };
 
 export default config;

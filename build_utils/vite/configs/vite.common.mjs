@@ -14,6 +14,7 @@ import { ENVS } from '../../config/index.mjs';
 import { entryPath, outputPath } from '../../config/commonPaths.mjs';
 import generateChunkManifestPlugin from '../customPlugins/generateChunkManifestPlugin.mjs';
 import copyRedirectsPlugin from '../customPlugins/copyRedirectsNetlifyPlugin.mjs';
+import stripCustomWindowVariablesPlugin from '../customPlugins/stripCustomWindowVariablesPlugin.mjs';
 import pkg from '../../../package.json' with { type: 'json' };
 import svgrConfig from '../../../svgr.config.mjs';
 
@@ -24,18 +25,28 @@ const config = {
       svgrOptions: svgrConfig,
       include: '**/*.svg',
     }),
+    [ENVS.PROD, ENVS.BETA].includes(process.env.APP_ENV) &&
+      stripCustomWindowVariablesPlugin({
+        variables: ['abc'],
+      }),
+    process.env.IS_STORYBOOK !== 'true' && copyRedirectsPlugin(),
+    process.env.IS_STORYBOOK !== 'true' && preload(),
     compression({
       deleteOriginFile: false,
       algorithm: 'brotliCompress',
       ext: '.br',
     }),
     generateChunkManifestPlugin(),
-    copyRedirectsPlugin(),
-    preload(),
     VitePWA({
       strategies: 'injectManifest',
       injectRegister: false,
       injectManifest: false,
+      manifest: {
+        name: 'React JS Vite Starter',
+        short_name: 'React JS Vite',
+        description: 'A starter template for React JS with Vite',
+        theme_color: '#ffffff',
+      },
     }),
   ],
   define: {
@@ -70,11 +81,17 @@ const config = {
         // eslint-disable-next-line consistent-return
         manualChunks: id => {
           if (id.includes('node_modules')) {
+            const directories = id.split('node_modules/');
+            if (directories.length > 1) {
+              const packageName = directories[1].split('/')[0];
+              return `vendor-${packageName}`;
+            }
             return 'vendor';
           }
         },
       },
     },
+    treeshake: true,
   },
 };
 

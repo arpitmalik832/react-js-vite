@@ -5,10 +5,10 @@
 import { defineConfig } from 'cypress';
 import fs from 'fs';
 
-export default defineConfig({
+const config = defineConfig({
   e2e: {
     video: true,
-    setupNodeEvents(on) {
+    setupNodeEvents(on, _) {
       on('after:spec', (spec, results) => {
         if (results && results.video) {
           // Do we have failures for any retry attempts?
@@ -24,3 +24,5 @@ export default defineConfig({
     },
   },
 });
+
+export default config;
