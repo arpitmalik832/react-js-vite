@@ -1,6 +1,6 @@
 // stylelint configuration
 // https://stylelint.io/user-guide/configuration/
-module.exports = {
+const config = {
   // The standard config based on a handful of CSS style guides
   // https://github.com/stylelint/stylelint-config-standard
   extends: [
@@ -68,3 +68,5 @@ module.exports = {
     'storybook-static/**/*.{css,scss}',
   ],
 };
+
+export default config;
