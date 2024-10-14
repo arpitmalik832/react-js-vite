@@ -14,40 +14,41 @@ import { ENVS } from '../../config/index.mjs';
 import { entryPath, outputPath } from '../../config/commonPaths.mjs';
 import generateChunkManifestPlugin from '../customPlugins/generateChunkManifestPlugin.mjs';
 import copyRedirectsPlugin from '../customPlugins/copyRedirectsNetlifyPlugin.mjs';
+import stripCustomWindowVariablesPlugin from '../customPlugins/stripCustomWindowVariablesPlugin.mjs';
 import pkg from '../../../package.json' with { type: 'json' };
 import svgrConfig from '../../../svgr.config.mjs';
 
-const plugins = [
-  react(),
-  svgr({
-    svgrOptions: svgrConfig,
-    include: '**/*.svg',
-  }),
-  compression({
-    deleteOriginFile: false,
-    algorithm: 'brotliCompress',
-    ext: '.br',
-  }),
-  generateChunkManifestPlugin(),
-  VitePWA({
-    strategies: 'injectManifest',
-    injectRegister: false,
-    injectManifest: false,
-    manifest: {
-      name: 'React JS Vite Starter',
-      short_name: 'React JS Vite',
-      description: 'A starter template for React JS with Vite',
-      theme_color: '#ffffff',
-    },
-  }),
-];
-
-if (process.env.IS_STORYBOOK !== 'true') {
-  plugins.push(copyRedirectsPlugin(), preload());
-}
-
 const config = {
-  plugins,
+  plugins: [
+    react(),
+    svgr({
+      svgrOptions: svgrConfig,
+      include: '**/*.svg',
+    }),
+    [ENVS.PROD, ENVS.BETA].includes(process.env.APP_ENV) &&
+      stripCustomWindowVariablesPlugin({
+        variables: ['abc'],
+      }),
+    process.env.IS_STORYBOOK !== 'true' && copyRedirectsPlugin(),
+    process.env.IS_STORYBOOK !== 'true' && preload(),
+    compression({
+      deleteOriginFile: false,
+      algorithm: 'brotliCompress',
+      ext: '.br',
+    }),
+    generateChunkManifestPlugin(),
+    VitePWA({
+      strategies: 'injectManifest',
+      injectRegister: false,
+      injectManifest: false,
+      manifest: {
+        name: 'React JS Vite Starter',
+        short_name: 'React JS Vite',
+        description: 'A starter template for React JS with Vite',
+        theme_color: '#ffffff',
+      },
+    }),
+  ],
   define: {
     'process.env.APP_ENV': JSON.stringify(process.env.APP_ENV),
   },
@@ -90,6 +91,7 @@ const config = {
         },
       },
     },
+    treeshake: true,
   },
 };
 
