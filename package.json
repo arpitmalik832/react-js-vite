@@ -132,7 +132,10 @@
     "storybook:serve": "node scripts/serve_storybook.js",
     "version-bump:patch": "npx release-it patch",
     "version-bump:minor": "npx release-it minor",
-    "version-bump:major": "npx release-it major"
+    "version-bump:major": "npx release-it major",
+    "version-bump:alpha": "npx release-it prerelease --preRelease=alpha",
+    "version-bump:beta": "npx release-it prerelease --preRelease=beta",
+    "version-bump:rc": "npx release-it prerelease --preRelease=rc"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
@@ -217,7 +220,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@arpitmalik832/react-js-rollup-monorepo-library": "^0.3.8",
+    "@arpitmalik832/react-js-rollup-monorepo-library": "^0.3.10-alpha.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
