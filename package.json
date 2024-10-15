@@ -133,9 +133,15 @@
     "version-bump:patch": "npx release-it patch",
     "version-bump:minor": "npx release-it minor",
     "version-bump:major": "npx release-it major",
-    "version-bump:alpha": "npx release-it prerelease --preRelease=alpha",
-    "version-bump:beta": "npx release-it prerelease --preRelease=beta",
-    "version-bump:rc": "npx release-it prerelease --preRelease=rc"
+    "version-bump:major:alpha": "npx release-it major prerelease --preRelease=alpha",
+    "version-bump:major:beta": "npx release-it major prerelease --preRelease=beta",
+    "version-bump:major:rc": "npx release-it major prerelease --preRelease=rc",
+    "version-bump:minor:alpha": "npx release-it minor prerelease --preRelease=alpha",
+    "version-bump:minor:beta": "npx release-it minor prerelease --preRelease=beta",
+    "version-bump:minor:rc": "npx release-it minor prerelease --preRelease=rc",
+    "version-bump:patch:alpha": "npx release-it patch prerelease --preRelease=alpha",
+    "version-bump:patch:beta": "npx release-it patch prerelease --preRelease=beta",
+    "version-bump:patch:rc": "npx release-it patch prerelease --preRelease=rc"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
