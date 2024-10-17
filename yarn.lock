@@ -12160,6 +12160,11 @@ stop-iteration-iterator@^1.0.0:
   dependencies:
     internal-slot "^1.0.4"
 
+storybook-addon-render-modes@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/storybook-addon-render-modes/-/storybook-addon-render-modes-0.0.11.tgz#39e2ac9bfa2e2649b0d8573fff5e1b87e6777771"
+  integrity sha512-+KqkJq/rDftxWu1nvsaaewhEqmv3SYt4QHT+m4h3kjy0TkrYUL+75zpjv3Jf5gQYpmeUySgZGJdCzaYhNCE5eg==
+
 storybook@^8.3.5:
   version "8.3.5"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.3.5.tgz#aef0542c08e245b7ac22742c1e1633a125063b8e"
