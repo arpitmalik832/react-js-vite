@@ -24,10 +24,10 @@
     jsonpointer "^5.0.0"
     leven "^3.1.0"
 
-"@arpitmalik832/react-js-rollup-monorepo-library@^0.3.10-alpha.0":
-  version "0.3.10-alpha.0"
-  resolved "https://npm.pkg.github.com/download/@arpitmalik832/react-js-rollup-monorepo-library/0.3.10-alpha.0/9143f4b6ffe34a1bfbe1c08f97f253292087841e#9143f4b6ffe34a1bfbe1c08f97f253292087841e"
-  integrity sha512-PFSc1hgJbsBM7Zsn65Wxl0LkFqNyUNLq5lMXA8+PCkrQo8o0t7ROca/ZfkaPwce1uyKQDbgJYT0A3aoXyV+/9w==
+"@arpitmalik832/react-js-rollup-monorepo-library@^0.3.10-alpha.1":
+  version "0.3.10-alpha.1"
+  resolved "https://npm.pkg.github.com/download/@arpitmalik832/react-js-rollup-monorepo-library/0.3.10-alpha.1/8700ab61c7a01fc54a3ebb0920911cb4c497ad3c#8700ab61c7a01fc54a3ebb0920911cb4c497ad3c"
+  integrity sha512-kvnAHid9qkhZPygKv7LIw7Tjv9x5rNyuhz/iVGB5DeSgzl68i+zYAl18NiIO1vCv3xCN9f1ekMySgOdE9u66aw==
   dependencies:
     "@reduxjs/toolkit" "^2.2.7"
     axios "^1.7.7"
@@ -12159,6 +12159,11 @@ stop-iteration-iterator@^1.0.0:
   integrity sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ==
   dependencies:
     internal-slot "^1.0.4"
+
+storybook-addon-render-modes@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/storybook-addon-render-modes/-/storybook-addon-render-modes-0.0.11.tgz#39e2ac9bfa2e2649b0d8573fff5e1b87e6777771"
+  integrity sha512-+KqkJq/rDftxWu1nvsaaewhEqmv3SYt4QHT+m4h3kjy0TkrYUL+75zpjv3Jf5gQYpmeUySgZGJdCzaYhNCE5eg==
 
 storybook@^8.3.5:
   version "8.3.5"

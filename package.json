@@ -210,6 +210,7 @@
     "rollup-plugin-visualizer": "^5.12.0",
     "sass": "^1.79.4",
     "storybook": "^8.3.5",
+    "storybook-addon-render-modes": "^0.0.11",
     "stylelint": "^16.10.0",
     "stylelint-config-clean-order": "^6.1.0",
     "stylelint-config-hudochenkov": "^10.0.0",
@@ -226,7 +227,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@arpitmalik832/react-js-rollup-monorepo-library": "^0.3.10-alpha.0",
+    "@arpitmalik832/react-js-rollup-monorepo-library": "^0.3.10-alpha.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",

@@ -11,6 +11,7 @@ export default {
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
     '@storybook/addon-storysource',
+    'storybook-addon-render-modes',
   ],
   framework: '@storybook/react-vite',
   async viteFinal(config, { configType }) {
