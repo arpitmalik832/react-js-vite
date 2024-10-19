@@ -1,6 +1,6 @@
 {
   "name": "react-js-vite",
-  "version": "0.0.4-alpha.0",
+  "version": "0.1.0-alpha.0",
   "description": "A React JS starter code",
   "sideEffects": false,
   "type": "module",
