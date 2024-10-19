@@ -28,7 +28,7 @@ jobs:
           node-version: '20'
       - name: Comment out authToken line in .npmrc
         run: |
-          sed -i 's|//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}|#//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}|' .npmrc
+          sed -i 's|//npm.pkg.github.com/:_authToken=${GH_TOKEN}|#//npm.pkg.github.com/:_authToken=${GH_TOKEN}|' .npmrc
       - name: Authenticate with GitHub Packages
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" >> ~/.npmrc
       - name: Installing dependencies
