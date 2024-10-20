@@ -35,11 +35,11 @@ module.exports = {
         map: [
           [
             '@arpitmalik832/react-js-rollup-monorepo-library/icons/*',
-            './node_modules/@arpitmalik832/react-js-rollup-monorepo-library/dist/assets/icons/*',
+            './node_modules/@arpitmalik832/react-js-rollup-monorepo-library/dist/esm/assets/icons/*',
           ],
           [
             '@arpitmalik832/react-js-rollup-monorepo-library',
-            './node_modules/@arpitmalik832/react-js-rollup-monorepo-library/dist/index.js',
+            './node_modules/@arpitmalik832/react-js-rollup-monorepo-library/dist/esm/index.js',
           ],
           [
             '@arpitmalik832/react-js-rollup-monorepo-library/styles/*',
