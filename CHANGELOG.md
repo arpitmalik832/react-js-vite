@@ -1,3 +1,5 @@
+# [0.1.0-alpha.0](https://github.com/arpitmalik832/react-js-vite/compare/v0.0.4-alpha.0...v0.1.0-alpha.0) (2024-10-19)
+
 ## [0.0.4-alpha.0](https://github.com/arpitmalik832/react-js-vite/compare/v0.0.2...v0.0.4-alpha.0) (2024-10-15)
 
 ### Bug Fixes
